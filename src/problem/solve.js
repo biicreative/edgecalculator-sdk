@@ -18,7 +18,7 @@ export const invokeSolve = async (
     };
     const options = invokeOptions(input, config.timeout);
     const response = await got(`${config.gateway}/solve`, options);
-    return { status: true, result: response.body };
+    return { status: true, result: response.body.result };
   } catch (err) {
     Sentry.captureException(err);
     console.error("an error occured while executing the request:", err);

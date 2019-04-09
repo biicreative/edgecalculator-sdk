@@ -3,7 +3,7 @@
 export const invokeOptions = (input: any, timeout: number) => {
   return {
     method: "POST",
-    json: false,
+    json: true,
     encoding: "utf8",
     timeout: timeout,
     body: input
