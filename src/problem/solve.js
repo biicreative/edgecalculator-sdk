@@ -8,10 +8,15 @@ export const invokeSolve = async (
     gateway: string,
     timeout: number
   },
+  facts: Array<string>,
   question: string
 ) => {
   try {
-    const options = invokeOptions(question, config.timeout);
+    const input = {
+      facts: facts,
+      question: question
+    };
+    const options = invokeOptions(input, config.timeout);
     const response = await got(`${config.gateway}/solve`, options);
     return { status: true, result: response.body };
   } catch (err) {

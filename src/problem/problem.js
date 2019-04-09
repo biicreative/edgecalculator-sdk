@@ -1,5 +1,6 @@
 // @flow
 import { invokeSolve } from "./solve";
+import nlp from "compromise";
 
 export class Problem {
   config: {
@@ -15,8 +16,25 @@ export class Problem {
     this.question = question;
   }
 
+  parse = () => {
+    // "understand" the question with a nlp lib
+    const doc = nlp(this.question);
+
+    // find the "named things"
+    const facts: Array<string> = doc
+      .match("#Value #Noun")
+      .trim()
+      .out("array");
+
+    // find the real question
+    const q: string = doc.questions().out();
+
+    return { facts: facts, question: q };
+  };
+
   solve = async () => {
-    const { status, result } = await invokeSolve(this.config, this.question);
+    const { facts, question } = this.parse();
+    const { status, result } = await invokeSolve(this.config, facts, question);
     if (status) {
       return result;
     }

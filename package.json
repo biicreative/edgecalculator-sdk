@@ -1,6 +1,6 @@
 {
   "name": "edgecalculator",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "Edge Calculator SDK",
   "main": "dist/index.js",
   "author": "Federico Minzoni",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@sentry/node": "^4.6.3",
     "body-parser": "^1.18.3",
+    "compromise": "^11.13.2",
     "got": "^9.3.2"
   },
   "devDependencies": {

@@ -16,11 +16,14 @@ it("should solve a problem", async () => {
     gateway: "https://GATEWAY",
     timeout: 200
   };
-  const result = await invokeSolve(config, "QUESTION");
+  const result = await invokeSolve(config, [], "QUESTION");
 
   expect(got).toHaveBeenCalledTimes(1);
   expect(got).toHaveBeenCalledWith("https://GATEWAY/solve", {
-    body: "QUESTION",
+    body: {
+      facts: [],
+      question: "QUESTION"
+    },
     encoding: "utf8",
     json: false,
     method: "POST",
