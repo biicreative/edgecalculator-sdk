@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 it("should solve a problem", async () => {
-  got.mockReturnValue(Promise.resolve({ body: "15 cats" }));
+  got.mockReturnValue(Promise.resolve({ body: { result: "15 cats" } }));
 
   const options = {
     baseUrl: "https://GATEWAY"
@@ -28,7 +28,7 @@ it("should solve a problem", async () => {
       question: "How many cats are there in all?"
     },
     encoding: "utf8",
-    json: false,
+    json: true,
     method: "POST",
     timeout: 10000
   });

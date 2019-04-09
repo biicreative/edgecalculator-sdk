@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 it("should solve a problem", async () => {
-  got.mockReturnValue(Promise.resolve({ body: "ANSWER" }));
+  got.mockReturnValue(Promise.resolve({ body: { result: "ANSWER" } }));
 
   const config = {
     gateway: "https://GATEWAY",
@@ -25,7 +25,7 @@ it("should solve a problem", async () => {
       question: "QUESTION"
     },
     encoding: "utf8",
-    json: false,
+    json: true,
     method: "POST",
     timeout: 200
   });
