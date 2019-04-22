@@ -25,7 +25,8 @@ it("should solve a problem", async () => {
   expect(got).toHaveBeenCalledWith("https://GATEWAY/solve", {
     body: {
       facts: ["8 cats", "7 cats"],
-      question: "How many cats are there in all?"
+      question:
+        "Jack has 8 cats. Jill has 7 cats. How many cats are there in all?"
     },
     encoding: "utf8",
     json: true,
