@@ -33,8 +33,12 @@ export class Problem {
   };
 
   solve = async () => {
-    const { facts, question } = this.parse();
-    const { status, result } = await invokeSolve(this.config, facts, question);
+    const { facts } = this.parse();
+    const { status, result } = await invokeSolve(
+      this.config,
+      facts,
+      this.question
+    );
     if (status) {
       return result;
     }
