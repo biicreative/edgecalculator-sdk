@@ -34,7 +34,7 @@
     "jest-cli": "^24.1.0",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.3"
+    "semantic-release": "^17.2.3"
   },
   "scripts": {
     "validate": "yarn prettier:check && yarn lint:eslint && yarn typecheck",
